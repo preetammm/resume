@@ -7,7 +7,7 @@ const Projects = () => {
         {
             title: "Interactive Chicken Ordering Platform",
             description: "A fully functional, highly interactive chicken ordering website built without external component libraries. Features extensive custom CSS animations, a dynamic cart system, and responsive mobile-first design.",
-            tech: ["HTML5", "CSS3 / Animations", "JavaScript (ES6+)", "Local Storage"],
+            tech: ["Node.js", "React.js", "Firebase"],
             github: "https://github.com/preetammm/CHICKEN-.git",
             live: "#",
             image: "/chicken-project.png"
