@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
     const projects = [
@@ -23,15 +24,23 @@ const Projects = () => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem', marginTop: '2rem' }}>
                 {projects.map((project, idx) => (
-                    <div key={idx} style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(12, 1fr)',
-                        alignItems: 'center',
-                        gap: '20px'
-                    }} className="project-row">
+                    <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: idx * 0.2 }}
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(12, 1fr)',
+                            alignItems: 'center',
+                            gap: '20px'
+                        }}
+                        className="project-row"
+                    >
 
                         {/* Project Image - Alternating sides based on odd/even */}
-                        <div style={{
+                        <motion.div style={{
                             gridColumn: idx % 2 === 0 ? '1 / 8' : '6 / -1',
                             gridRow: '1',
                             position: 'relative',
@@ -43,9 +52,8 @@ const Projects = () => {
                             backgroundColor: 'var(--accent-primary)',
                             cursor: 'pointer'
                         }} className="project-image-container"
-                            onMouseOver={e => e.currentTarget.style.transform = 'translateY(-5px)'}
-                            onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
-
+                            whileHover={{ scale: 1.03, y: -5, rotateZ: idx % 2 === 0 ? -1 : 1 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         >
                             <div style={{
                                 width: '100%',
@@ -78,7 +86,7 @@ const Projects = () => {
                                     "[Project Screenshot]"
                                 )}
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Project Content */}
                         <div style={{
@@ -136,7 +144,7 @@ const Projects = () => {
                             </div>
                         </div>
 
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 
