@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import axios from 'axios';
 import { Mail, Linkedin, Github, FileText, Send } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
 
@@ -17,18 +16,36 @@ const Contact = () => {
         setStatus({ submitting: true, success: false, error: null });
 
         try {
-            // Assuming backend is running on same port in prod, or 5000 in dev
-            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
-            await axios.post(`${apiUrl}/api/contact`, formData);
-            setStatus({ submitting: false, success: true, error: null });
-            setFormData({ name: '', email: '', message: '' });
-            setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: "6c03ceb4-103f-4efb-ac89-8ada16fa410d",
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                setStatus({ submitting: false, success: true, error: null });
+                setFormData({ name: '', email: '', message: '' });
+                setTimeout(() => setStatus(prev => ({ ...prev, success: false })), 5000);
+            } else {
+                throw new Error("Failed to send message");
+            }
+
         } catch (error) {
             console.error('Contact form error:', error);
             setStatus({
                 submitting: false,
                 success: false,
-                error: error.response?.data?.error || 'Something went wrong. Please try again later.'
+                error: 'Something went wrong saving the message. Please try again later.'
             });
         }
     };
