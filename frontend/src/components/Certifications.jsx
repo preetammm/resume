@@ -88,12 +88,14 @@ const Certifications = () => {
                         }}
                         whileHover={{ y: -5, transition: { duration: 0.2 } }}
                     >
-                        <div style={{
+                        <a href={cert.image} target="_blank" rel="noreferrer" style={{
+                            display: 'block',
                             height: '200px',
                             width: '100%',
                             backgroundColor: 'var(--bg-tertiary)',
                             position: 'relative',
-                            overflow: 'hidden'
+                            overflow: 'hidden',
+                            textDecoration: 'none'
                         }}>
                             <img
                                 src={cert.image}
@@ -111,7 +113,7 @@ const Certifications = () => {
                                     e.target.parentNode.innerHTML += '<div style="display:flex; height:100%; align-items:center; justify-content:center; color: var(--text-tertiary); font-family: var(--font-mono)">[Certificate Image]</div>';
                                 }}
                             />
-                        </div>
+                        </a>
 
                         <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
