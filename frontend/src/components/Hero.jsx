@@ -3,9 +3,35 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
 import AnimatedText from './AnimatedText';
-import myPhoto from '../assets/Whisk_6e26785ec09323d8e5f4b54823b469eceg.png';
+import myPhoto from '../assets/Whisk_602457660eb9720a90746eadbde55ba6eg.png';
 
 const Hero = () => {
+    const techStack = [
+        "https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white",
+        "https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white",
+        "https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E",
+        "https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white",
+        "https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54",
+        "https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white",
+        "https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white",
+        "https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white",
+        "https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white",
+        "https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white",
+        "https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB",
+        "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
+        "https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white",
+        "https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB",
+        "https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white",
+        "https://img.shields.io/badge/apache-%23D22128.svg?style=for-the-badge&logo=apache&logoColor=white",
+        "https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white",
+        "https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white",
+        "https://img.shields.io/badge/Adobe%20After%20Effects-%239999FF.svg?style=for-the-badge&logo=Adobe%20After%20Effects&logoColor=white",
+        "https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white",
+        "https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white",
+        "https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white",
+        "https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
+    ];
+
     return (
         <SectionWrapper id="home" className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
             <div style={{
@@ -60,7 +86,7 @@ const Hero = () => {
 
                     <motion.div
                         className="hero-cta"
-                        style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
+                        style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
@@ -71,6 +97,21 @@ const Hero = () => {
                         <a href="#contact" className="btn btn-outline">
                             Contact Me
                         </a>
+                    </motion.div>
+
+                    <motion.div
+                        className="hero-tech-stack"
+                        style={{ marginTop: '2.5rem', display: 'flex', flexWrap: 'wrap', gap: '8px', maxWidth: '600px' }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                    >
+                        <div style={{ width: '100%', marginBottom: '0.5rem', fontSize: '1rem', color: 'var(--text-primary)', fontFamily: 'var(--font-mono)' }}>
+                            Tech Stack:
+                        </div>
+                        {techStack.map((badge, idx) => (
+                            <img key={idx} src={badge} alt="Tech Badge" style={{ height: '24px', borderRadius: '4px' }} />
+                        ))}
                     </motion.div>
 
                     <motion.div

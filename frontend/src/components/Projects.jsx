@@ -10,8 +10,24 @@ const Projects = () => {
             description: "A fully functional, highly interactive chicken ordering website built without external component libraries. Features extensive custom CSS animations, a dynamic cart system, and responsive mobile-first design.",
             tech: ["Node.js", "React.js", "Firebase"],
             github: "https://github.com/preetammm/CHICKEN-.git",
-            live: "#",
+            live: "https://chicken-vert.vercel.app/",
             image: "/chicken-project.png"
+        },
+        {
+            title: "TalentSync",
+            description: "Developed a modern job portal website, TalentSync, designed to connect job seekers with opportunities seamlessly. Focused on intuitive UI/UX, responsive design, and fast job search functionality.",
+            tech: ["React.js", "CSS", "JavaScript"],
+            github: "https://github.com/preetammm/JoB-Potal.git",
+            live: "https://jo-b-potal.vercel.app/job%20port/TallentSync/index.html",
+            image: "/talentsync.png"
+        },
+        {
+            title: "Grievance Redressal Platform",
+            description: "A streamlined solution for startups to manage customer grievances efficiently. Features include real-time status tracking, an analytical dashboard for administrators, and direct communication channels.",
+            tech: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
+            github: "https://github.com/preetammm/Grievance-Redressal-platform-.git",
+            live: "#",
+            image: "/grievance.png"
         }
     ];
 
